@@ -17,23 +17,28 @@ namespace V1._0
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void btnClear_Click_1(object sender, EventArgs e)
         {
-            string taskName = txtTask.Text;
-            string dueDate = txtDueDate.Text;
-
-            // No validation in v1.0
-            string taskEntry = taskName + " - Due: " + dueDate;
-            listBoxTasks.Items.Add(taskEntry);
-
-            // Clear inputs
             txtTask.Clear();
             txtDueDate.Clear();
-
         }
-        private void button1_Click(object sender, EventArgs e)
+
+        private void btnDelete_Click_1(object sender, EventArgs e)
         {
 
+            if (listBoxTasks.SelectedIndex != -1)
+            {
+                listBoxTasks.Items.RemoveAt(listBoxTasks.SelectedIndex);
+            }
+            else
+            {
+                MessageBox.Show("Please select a task to delete.", "Delete Task", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
             string taskName = txtTask.Text.Trim();
             string dueDateText = txtDueDate.Text.Trim();
 
